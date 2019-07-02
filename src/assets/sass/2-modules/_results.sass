@@ -1,0 +1,320 @@
+.results
+  width: 100%
+  height: 100%
+  padding: 50px 0 100px 0
+  background-color: $result-section-bg-color
+
+  +element('screen')
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    width: 100%
+    height: 65vh
+    background-image: url('./assets/images/results-bg/girl-bg.png')
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+
+    +modifier('video')
+      display: none
+
+    +modifier('aside')
+      display: flex
+      flex-direction: column
+      width: 135px
+      height: 98%
+      border-right: 5px solid $primary-red-color
+      border-top-right-radius: 25px
+      background-image: $grey-gradient
+      clip-path: polygon(0 0, 100% 1%, 100% 100%, 0% 100%)
+
+      +modifier('title')
+        width: 70%
+        height: 50px
+        margin: 30px auto
+        background-image: url('./assets/images/results-img/result-title.png')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+
+      +modifier('numbers')
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        width: 60px
+        height: 65%
+        margin: 0 auto
+
+        +modifier('item')
+          width: 100%
+          height: 60px
+          border-radius: 50%
+          background-image: url('./assets/images/results-img/circle-outline.svg')
+          background-repeat: no-repeat
+          background-position: center
+          background-size: cover
+          font-size: 1.8em
+          font-weight: 700
+          line-height: 2
+          text-align: center
+          color: #FFFFFF
+          background-color: $primary-red-color
+
+      +modifier('date')
+         width: 100%
+         margin: 20px auto
+         font-weight: 500
+         text-align: center
+
+    +modifier('info')
+      display: flex
+      flex-direction: column
+      align-items: center
+      width: 170px
+      height: 55px
+      padding: 5px 10px
+      border: 2px solid #b5bcc1
+      border-left: none
+      border-top-right-radius: 15px
+      border-bottom-right-radius: 15px
+      background-image: $yellow-gradient
+
+      &.first
+        transform: translate(-168px, -165px)
+
+      &.second
+        transform: translate(-506px, -90px)
+
+      +modifier('red')
+        display: inline-block
+        width: 100%
+        font-size: .85em
+        font-weight: 600
+        text-transform: uppercase
+        color: $primary-red-color
+
+      +modifier('strong')
+        display: inline-block
+        width: 100%
+        font-size: 1em
+        font-weight: 800
+        text-transform: uppercase
+
+    +modifier('logotime')
+      align-self: flex-start
+      width: 100px
+      height: 90px
+      margin: 2% -30% 0 0
+
+      +modifier('logo')
+        width: 100%
+        height: 60px
+        background-image: url('./assets/images/results-img/keno-white-logo.png')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+
+      +modifier('time')
+        display: inline-block
+        width: 100%
+        font-size: 1.3em
+        font-weight: 700
+        letter-spacing: 1px
+        text-align: center
+        color: white
+
+    +modifier('display')
+       display: flex
+       justify-content: center
+       align-items: center
+       width: 140px
+       height: 140px
+       margin: 0 5% 8% 0
+       border: 4px solid rgba(0, 0, 0, .25)
+       border-radius: 50%
+       background-color: rgba(0, 0, 0, .15)
+
+       +modifier('ball')
+         width: 100%
+         height: 100%
+         background-position: center
+         background-size: 95%
+         background-repeat: no-repeat
+
+    +modifier('allresults')
+      width: 40%
+      height: 40px
+      margin: 50px auto
+      font-size: 1.5em
+      font-weight: 700
+      line-height: 1.5
+      text-align: center
+      text-transform: uppercase
+      cursor: pointer
+      color: $white-text
+      background: $black-gradient
+
+
+  //Keno start time
+  +element('start')
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 50px
+    font-size: 1.5em
+    font-weight: 500
+    transform: translateY(-25px)
+
+    &.red
+      color: $white-text
+      background-image: $red-gradient
+
+    &.yellow
+      background-image: $yellow-gradient
+
+    +modifier('strong')
+       font-weight: 700
+       text-transform: uppercase
+
+  //Results dropdown
+  +element('dropdown')
+    margin-bottom: 30px
+
+    +modifier('btn')
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      border: none
+      border-radius: unset
+      text-align: left
+      transition: color 400ms ease-in-out
+
+      &.red
+        color: $white-text
+        background: $red-gradient
+
+      &.yellow
+        color: #222
+        background: $yellow-gradient
+
+      &:focus
+        text-decoration: none
+
+      &:hover
+        text-decoration: none
+
+      +modifier('icon')
+        display: inline-block
+        width: 20px
+        height: 20px
+        background-size: cover
+        background-position: center
+
+      &[aria-expanded="false"] > span
+        background-image: url('./assets/images/icons/arrow-down.svg')
+
+      &[aria-expanded="true"] > span
+        background-image: url('./assets/images/icons/arrow-up.svg')
+
+    +modifier('info')
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      height: auto
+      margin-bottom: 10px
+      padding-bottom: 10px
+      border-bottom: 2px solid $border-bottom-color
+      font-size: 1.2em
+      font-weight: 500
+
+      +modifier('total')
+        width: 80%
+
+      +modifier('combinations')
+        width: 70%
+
+      +modifier('date')
+        width: 25%
+        text-align: right
+
+    +modifier('numbers')
+
+      +modifier('title')
+        margin: 20px 0
+        font-size: 1.4em
+        font-weight: 700
+
+      +modifier('container')
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        align-items: center
+        width: 100%
+        height: auto
+        margin-bottom: 10px
+        padding-bottom: 10px
+        border-bottom: 2px solid $border-bottom-color
+
+        +modifier('item')
+          display: flex
+          justify-content: center
+          align-items: center
+          margin: 10px 0
+          border: 2px solid
+          border-radius: 50%
+          font-weight: 800
+
+          &.red-circle
+            width: 50px
+            height: 50px
+            border-color: $primary-red-color
+            font-size: 1.2em
+
+          &.yellow-circle
+            width: 80px
+            height: 80px
+            border-color: $primary-yellow-color
+            font-size: 2em
+
+    +modifier('win')
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      height: auto
+      margin-bottom: 10px
+      padding-bottom: 10px
+      font-size: 1.2em
+      font-weight: 500
+      text-transform: uppercase
+
+      +modifier('title')
+        width: 80%
+
+      +modifier('total')
+        width: 60%
+
+      +modifier('city')
+        width: 40%
+        text-align: right
+
+    +modifier('table')
+      font-weight: 400
+
+      +modifier('title')
+        color: $primary-red-color
+
+      tbody
+
+        tr
+
+          td:nth-child(2)
+            font-weight: 500
+
+          td:last-child
+            font-weight: 700

@@ -1,0 +1,28 @@
+.navigation
+
+	+element('homelink')
+
+		+modifier('logo')
+			height: 50px
+			object-fit: contain
+
+	+element('mobilebtn')
+		border: none
+
+		&:focus
+			outline: none
+
+		+modifier('icon')
+			width: 35px
+			height: 35px
+			background-image: url('./assets/images/header-img/bars.png')
+			background-repeat: no-repeat
+			background-position: center
+
+	+element('link')
+		font-weight: 500
+
+//router-link active nav item
+a.nav-link.navigation__link.router-link-exact-active,
+a.nav-link:focus.navigation__link.router-link-exact-active
+	color: $primary-red-color

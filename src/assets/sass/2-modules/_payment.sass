@@ -1,0 +1,58 @@
+.payment
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  height: auto
+  margin: 20vh 0
+
+  +element('info')
+    width: 35%
+    height: 400px
+    padding: 30px
+    background: url('./assets/images/payment-img/money.png') center/cover no-repeat $primary-red-color
+    background-blend-mode: overlay
+    box-shadow: inset -170px 0px 50px 0px $primary-red-color
+    color: $white-text
+
+    +modifier('title')
+      font-size: 2em
+
+    +modifier('subtitle')
+      margin: 20px 0
+      font-size: 1.2em
+
+
+  +element('images')
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    width: 65%
+    height: auto
+
+    +modifier('item')
+      width: calc(100% / 3)
+      height: 200px
+      padding-left: 5px
+      object-fit: cover
+
+      &:nth-child(1)
+        padding-bottom: 5px
+
+      &:nth-child(2)
+        padding-bottom: 5px
+
+      &:nth-child(3)
+        padding-bottom: 5px
+
+  +element('btn')
+    width: 280px
+    height: 35px
+    transform: translate(217%, -20px)
+    line-height: 2
+    text-align: center
+    cursor: pointer
+    color: $white-text
+    background: $red-gradient
