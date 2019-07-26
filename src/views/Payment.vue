@@ -11,7 +11,7 @@
             .payment__images
               img(v-for='item in 6' :key='item' :src='getUserImage(item)'  alt='User image' class='payment__images--item')
 
-            .payment__btn#learn-more Saznaj više
+            router-link.payment__btn#learn-more(:to='{ name: "saleplaces", params: {} }')  Saznaj više
 </template>
 
 <script>

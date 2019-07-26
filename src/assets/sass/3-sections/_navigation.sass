@@ -1,10 +1,32 @@
 .navigation
 
 	+element('homelink')
+		margin: 0
+		margin-right: 310px
 
 		+modifier('logo')
 			height: 50px
 			object-fit: contain
+
+	+element('userhelp')
+		width: 230px
+		margin: 0 10px 0 0
+		font-size: .9em
+		text-align: center
+
+	+element('search')
+		width: 22%
+		margin: 0 10px 0 0
+
+		+modifier('addon')
+			background-color: unset
+
+		+modifier('input')
+			border-top-right-radius: .25rem !important
+			border-bottom-right-radius: .25rem !important
+
+	+element('navbar')
+		max-width: 17%
 
 	+element('mobilebtn')
 		border: none
@@ -22,7 +44,23 @@
 	+element('link')
 		font-weight: 500
 
+//Subnavigation
+.subnavigation
+	margin-bottom: 50px
+	
+	+element('list')
+
+		+modifier('item')
+
+			+modifier('link')
+				color: $grey-text
+
+				&:hover
+					color: lighten($grey-text, 30%)
+
 //router-link active nav item
 a.nav-link.navigation__link.router-link-exact-active,
-a.nav-link:focus.navigation__link.router-link-exact-active
+a.nav-link:focus.navigation__link.router-link-exact-active,
+a.nav-link.subnavigation__list--item--link.router-link-exact-active,
+a.nav-link:focus.subnavigation__list--item--link.router-link-exact-active
 	color: $primary-red-color

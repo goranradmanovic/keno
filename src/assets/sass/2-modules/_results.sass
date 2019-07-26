@@ -1,3 +1,47 @@
+@mixin numberWrapper
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 15px
+
+@mixin numberWrapperTitle
+  width: 100%
+  margin-bottom: 20px
+  font-size: 1.5em
+  font-weight: 600
+
+@mixin numberBox
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 67px
+  height: 67px
+  margin-bottom: 10px
+  border: 2px solid $primary-red-color
+  border-radius: 50%
+  font-size: 2em
+  font-weight: 700
+  cursor: pointer
+  background-color: unset
+  transition: all 400ms ease-in-out
+
+@mixin wagerFileds
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 14%
+  font-size: 1.1em
+  font-weight: 600
+
+@mixin wagerTrashCan
+  font-size: 1.5em
+  line-height: 1.5
+  border: none
+  text-align: center
+  background: unset
+  color: $primary-red-color
+
 .results
   width: 100%
   height: 100%
@@ -142,6 +186,7 @@
          background-repeat: no-repeat
 
     +modifier('allresults')
+      display: block
       width: 40%
       height: 40px
       margin: 50px auto
@@ -150,21 +195,24 @@
       line-height: 1.5
       text-align: center
       text-transform: uppercase
-      cursor: pointer
       color: $white-text
       background: $black-gradient
 
+      &:hover
+        opacity: .95
+        color: $white-text
 
   //Keno start time
   +element('start')
     display: flex
+    flex-wrap: wrap
     justify-content: center
     align-items: center
     width: 100%
-    height: 50px
+    height: 80px
     font-size: 1.5em
     font-weight: 500
-    transform: translateY(-25px)
+    transform: translateY(-40px)
 
     &.red
       color: $white-text
@@ -177,48 +225,157 @@
        font-weight: 700
        text-transform: uppercase
 
+  +element('gameplaying')
+    display: flex
+    flex-direction: column
+    width: 100%
+    height: 100%
+
+    +modifier('numbers')
+      @include numberWrapper
+
+      +modifier('box')
+        @include numberBox
+
+        &.disabled
+          pointer-events: none
+
+        &:disabled
+          pointer-events: none
+          background: $yellow-gradient
+
+        &:hover
+          font-size: 2.2em
+          background-color: #eee
+
+    +modifier('selectednumbers')
+      @include numberWrapper
+      height: 125px
+      
+      +modifier('title')
+        @include numberWrapperTitle
+
+      +modifier('box')
+        @include numberBox
+
+        &:hover
+          background-color: #eee
+
+    +modifier('randomnumbers')
+      @include numberWrapper
+      height: 125px
+
+      +modifier('title')
+        @include numberWrapperTitle
+
+      +modifier('box')
+        @include numberBox
+
+        &:hover
+          background-color: #eee
+
+  +element('wager')
+    display: flex
+    flex-direction: column
+    width: 100%
+    height: 100%
+
+    +modifier('text')
+      @include wagerFileds
+
+    +modifier('bet')
+      @include wagerFileds
+
+    +modifier('max')
+      @include wagerFileds
+
+    +modifier('date')
+      @include wagerFileds
+
+    +modifier('round')
+      font-size: 1.2em
+      font-weight: 600
+
+    +modifier('controlls')
+      @include wagerFileds
+      flex-wrap: wrap
+      justify-content: flex-end
+      margin-bottom: 30%
+
+      +modifier('title')
+        width: 100%
+        margin-bottom: 30px
+        text-align: right
+
+      +modifier('trash')
+        @include wagerTrashCan
+        margin-right: 115px
+
+      +modifier('plus')
+        border: 1px solid #ccc
+        background-color: unset
+
+      +modifier('display')
+        width: 100px
+        height: 30px
+        margin: 0 20px
+        padding: 2px
+        border: 1px solid #ccc
+        text-align: right
+
+      +modifier('minus')
+        border: 1px solid #ccc
+        background-color: unset
+
+    +modifier('play')
+      @include wagerFileds
+      flex-wrap: wrap
+      justify-content: flex-end
+
+      +modifier('trash')
+        @include wagerTrashCan
+        margin-right: 232px
+
+      +modifier('btn')
+        width: 80px
+        height: 30px
+        border: 1px solid #ccc
+        text-align: center
+        background: unset
+
   //Results dropdown
-  +element('dropdown')
-    margin-bottom: 30px
 
-    +modifier('btn')
-      display: flex
-      justify-content: space-between
-      align-items: center
-      width: 100%
-      border: none
-      border-radius: unset
-      text-align: left
-      transition: color 400ms ease-in-out
+  +element('info')
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    height: auto
+    margin-bottom: 10px
+    padding-bottom: 10px
+    border-bottom: 2px solid $border-bottom-color
+    font-size: 1.2em
+    font-weight: 500
 
-      &.red
-        color: $white-text
-        background: $red-gradient
+    +modifier('total')
+      width: 80%
 
-      &.yellow
-        color: #222
-        background: $yellow-gradient
+    +modifier('combinations')
+      width: 70%
 
-      &:focus
-        text-decoration: none
+    +modifier('date')
+      width: 25%
+      text-align: right
 
-      &:hover
-        text-decoration: none
+  +element('numbers')
 
-      +modifier('icon')
-        display: inline-block
-        width: 20px
-        height: 20px
-        background-size: cover
-        background-position: center
+    +modifier('title')
+      margin: 20px 0
+      font-size: 1.4em
+      font-weight: 700
 
-      &[aria-expanded="false"] > span
-        background-image: url('./assets/images/icons/arrow-down.svg')
-
-      &[aria-expanded="true"] > span
-        background-image: url('./assets/images/icons/arrow-up.svg')
-
-    +modifier('info')
+    +modifier('container')
       display: flex
       flex-wrap: wrap
       justify-content: space-between
@@ -228,88 +385,35 @@
       margin-bottom: 10px
       padding-bottom: 10px
       border-bottom: 2px solid $border-bottom-color
-      font-size: 1.2em
-      font-weight: 500
 
-      +modifier('total')
-        width: 80%
-
-      +modifier('combinations')
-        width: 70%
-
-      +modifier('date')
-        width: 25%
-        text-align: right
-
-    +modifier('numbers')
-
-      +modifier('title')
-        margin: 20px 0
-        font-size: 1.4em
-        font-weight: 700
-
-      +modifier('container')
+      +modifier('item')
         display: flex
-        flex-wrap: wrap
-        justify-content: space-between
+        justify-content: center
         align-items: center
-        width: 100%
-        height: auto
-        margin-bottom: 10px
-        padding-bottom: 10px
-        border-bottom: 2px solid $border-bottom-color
+        margin: 10px 0
+        border: 2px solid
+        border-radius: 50%
+        font-weight: 800
 
-        +modifier('item')
-          display: flex
-          justify-content: center
-          align-items: center
-          margin: 10px 0
-          border: 2px solid
-          border-radius: 50%
-          font-weight: 800
+        &.red-circle
+          width: 50px
+          height: 50px
+          border-color: $primary-red-color
+          font-size: 1.2em
 
-          &.red-circle
-            width: 50px
-            height: 50px
-            border-color: $primary-red-color
-            font-size: 1.2em
+        &.yellow-circle
+          width: 80px
+          height: 80px
+          border-color: $primary-yellow-color
+          font-size: 2em
 
-          &.yellow-circle
-            width: 80px
-            height: 80px
-            border-color: $primary-yellow-color
-            font-size: 2em
+  +element('table')
+    font-weight: 400
 
-    +modifier('win')
-      display: flex
-      flex-wrap: wrap
-      justify-content: space-between
-      align-items: center
-      width: 100%
-      height: auto
-      margin-bottom: 10px
-      padding-bottom: 10px
-      font-size: 1.2em
-      font-weight: 500
-      text-transform: uppercase
+    +modifier('title')
+      color: $primary-red-color
 
-      +modifier('title')
-        width: 80%
-
-      +modifier('total')
-        width: 60%
-
-      +modifier('city')
-        width: 40%
-        text-align: right
-
-    +modifier('table')
-      font-weight: 400
-
-      +modifier('title')
-        color: $primary-red-color
-
-      tbody
+    & tbody
 
         tr
 

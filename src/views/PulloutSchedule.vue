@@ -53,7 +53,7 @@
 <script>
 
   export default {
-    name: 'PulloutSchedule',
+    name: 'pulloutschedule',
 
     data() {
       return {
