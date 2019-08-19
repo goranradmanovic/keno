@@ -1,17 +1,39 @@
 <template lang="pug">
+.payment.mt-5.mb-5
   .container
     .row
-      .col-md-12.col-sm-12
-        section.payment
-            .payment__info
-              h1.payment__info--title Uplata i isplata
-              h2.payment__info--subtitle Lorem ipsum dolor sit amet
-              p.payment__info--text Nunc aliquam turpis quis ipsum consequat porta. Donec volutpat elit nec enim sollicitudin, dapibus facilisis augue imperdiet. Phasellus vehicula ullamcorper sapien nec tristique. Mauris varius mauris non posuere mollis. Curabitur tempor porttitor justo ac maximus.
+      .col-md-3.offset-md-1.col-sm-12
+        .payment__content
+          .payment__content--img.one
 
-            .payment__images
-              img(v-for='item in 6' :key='item' :src='getUserImage(item)'  alt='User image' class='payment__images--item')
+          h5.payment__content--title Gdje se nalaze vaša prodajna mjesta?
 
-            router-link.payment__btn#learn-more(:to='{ name: "saleplaces", params: {} }')  Saznaj više
+          p.payment__content--text Pored mogućnosti igre na veb portalu, kombinaciju možete uplatiti na preko 3.000 lokacija u Republici Srpskoj.
+
+      .col-md-3.offset-md-1.col-sm-12
+        .payment__content
+          .payment__content--img.two
+
+          h5.payment__content--title Želim dopuniti račun?
+
+          p.payment__content--text Dopuniti svoj račun za igru brzo i lako koristeći neki od ovih načina.
+
+      .col-md-3.offset-md-1.col-sm-12
+        .payment__content
+          .payment__content--img.three
+
+          h5.payment__content--title
+            span Dobitak
+            br
+            | Kako da isplatim?
+
+          p.payment__content--text
+            span Čestitamo!
+            br
+            | Isplatite svoj dobitak odmah na bilo kojoj lokaciji ili putem interneta.
+    .row
+      .col-md-12.col-sm-12.text-center
+        router-link(to='/uplata-isplata' class='payment__link') Uplate i isplate
 </template>
 
 <script>
@@ -23,13 +45,6 @@
 
       }
     },
-
-    methods: {
-      //Placeholder function for getting lotto ball image path
-      getUserImage(imageNumber) {
-        return require('../assets/images/payment-img/' + imageNumber + '.png');
-      }
-    }
   }
 
 </script>

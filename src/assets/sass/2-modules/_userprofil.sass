@@ -1,5 +1,158 @@
 .userprofil
 
-  +element('card')
-    width: 80%
-    margin: 0 auto
+  +element('wrapper')
+    display: flex
+    align-items: center
+    width: 100%
+
+    +modifier('image')
+      border-radius: 10px
+      background-color: #ebebeb
+
+    +modifier('content')
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+      height: 50px
+      box-shadow: 0px 15px 10px -15px rgba(0, 0, 0, .2)
+
+      & > div
+        display: flex
+        width: calc(100% / 4)
+        height: 50px
+
+      +modifier('username')
+        padding-left: 20px
+        font-size: 1.8em
+        color: $blue-text
+
+      +modifier('accountstatus')
+        color: $blue-text
+
+        & > span:first-child
+          display: inline-flex
+          width: 45%
+          padding-right: 5px
+          font-size: .8em
+          text-align: right
+
+        & > span:last-child
+          display: inline-flex
+          justify-content: flex-end
+          width: 55%
+          font-size: 1.8em
+          font-weight: 600
+
+      +modifier('bonusstatus')
+        justify-content: flex-end
+
+        +modifier('info')
+          width: 60%
+          height: 45px
+          padding: 2px 5px
+          font-size: .9em
+          text-align: right
+          border-radius: 10px
+          background-color: $grey-bg
+
+          & > span:first-child
+            display: inline-flex
+            width: 100%
+            color: $blue-text
+
+          & > span:last-child
+            display: inline-flex
+            justify-content: flex-end
+            width: 100%
+            color: $grey-text
+
+      +modifier('playbtn')
+        justify-content: flex-end
+
+        & > button
+          width: 80%
+          border-radius: 30px
+          font-weight: 700
+          text-transform: uppercase
+          color: $white-text
+          background: $lightred-gradient
+
+  +element('title')
+    display: inline-flex
+    width: auto
+    margin-right: 2%
+    text-transform: uppercase
+    color: $blue-text
+
+  +element('divider')
+    display: inline-flex
+    width: calc(100% - 18%)
+    border-bottom: 1px solid #ccc
+
+  +element('label')
+    margin-bottom: 5px
+    color: #999
+
+  +element('text')
+    font-size: 1.1em
+
+  +element('btn')
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-top: 5%
+    width: 60%
+    height: 60%
+    border-radius: 30px
+    color: $white-text
+    background: $blue-gradient
+
+    &:hover
+      color: $white-text
+      text-decoration: none
+
+    +modifier('img')
+      width: 25px
+      height: 25px
+      margin-right: 5px
+      object-fit: contain
+
+  +element('table')
+    margin: 30px 0
+    border-radius: 10px
+    box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, .2)
+
+    +modifier('thead')
+
+      +modifier('tr')
+        text-align: center
+        text-transform: uppercase
+        color: $white-text
+        background: url('./assets/images/pullout-img/time-bg.png') no-repeat bottom/cover
+
+        +modifier('th')
+          border: unset !important
+
+          &:first-child
+            border-top-left-radius: 10px
+
+          &:nth-child(even)
+            background-color: rgba(255, 255, 255, .2)
+            background-blend-mode: overlay
+
+          &:last-child
+            border-top-right-radius: 10px
+
+    +modifier('tbody')
+      text-transform: uppercase
+
+      +modifier('tr')
+        text-align: center
+
+        +modifier('td')
+
+          +modifier('img')
+            width: 40px
+            height: 25px
+            object-fit: contain

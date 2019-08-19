@@ -3,6 +3,9 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'bootstrap';
+import 'slick-carousel/slick/slick.css'; //Includin sclick slider css into app
+import 'slick-carousel/slick/slick-theme.css'; //Includin sclick slider css into app
+import 'slick-carousel/slick/slick.min.js'; //Includin sclick slider js into app
 import Vuelidate from 'vuelidate';
 import BootstrapVue from 'bootstrap-vue';
 import * as VueGoogleMaps from 'vue2-google-maps';

@@ -1,0 +1,35 @@
+.winmodal
+  background-color: rgba(0, 0, 0, .5)
+
+  +element('header')
+    border: unset
+
+    +modifier('title')
+      width: 100%
+      font-size: 1.56em
+      font-weight: 900
+      color: $blue-text
+
+    +modifier('closebtn')
+      font-size: 2em
+      color: $red-text
+
+      &:hover
+        color: lighten($red-text, 5)
+      &:focus
+        outline: none
+
+  +element('footer')
+    border: unset
+
+    +modifier('profilebtn')
+      margin: 0 auto
+      border-radius: 25px
+      text-transform: uppercase
+      border-color: unset
+      color: $white-text
+      background: $blue-gradient
+      outline: none
+
+      &:hover
+        color: $white-text

@@ -1,2 +1,117 @@
 .register
-  margin: 15% auto
+  padding: 25px 0 50px 0
+  background: $registerbg-gradient
+
+  +element('card')
+    color: $grey-text
+
+    & > .card-body
+      & > .card-title
+        color: $blue-text
+
+    +modifier('info')
+      margin: 30px 0
+      font-size: .9em
+
+      +modifier('img')
+        display: inline-block
+        width: 10px
+        height: 10px
+        background: url('./assets/images/icons/filled-star.svg') no-repeat center/contain
+
+    +modifier('title')
+      display: inline-flex
+      width: auto
+      margin-right: 2%
+      text-transform: uppercase
+      color: $blue-text
+
+    +modifier('divider')
+      display: inline-flex
+      width: calc(100% - 18%)
+      border-bottom: 1px solid #ccc
+
+    +modifier('label')
+      margin-top: 20px
+      &.required
+        &::after
+          content: ''
+          display: inline-flex
+          width: 10px
+          height: 10px
+          margin-left: 5px
+          background: url('./assets/images/icons/filled-star.svg') no-repeat center/contain
+
+    +modifier('input')
+      appearance: none
+      border: unset
+      border-radius: 30px
+      resize: none
+      background-color: #ebebeb
+
+      &.dropdown
+        background: url('./assets/images/icons/angle-down-black.svg') no-repeat 95%/25px, #ebebeb
+
+      +modifier('radio')
+        appearance: none
+        display: inline-block
+        top: 10px
+        height: 30px
+        width: 30px
+        border: unset
+        border-radius: 50px
+        cursor: pointer
+        margin-right: 7px
+        outline: none
+        background-color: #ebebeb
+
+        &:checked::before
+          content: ''
+          position: absolute
+          left: 12%
+          top: 24%
+          width: 15px
+          height: 15px
+          border-radius: 50%
+          background-color: $blue-text
+
+      +modifier('checkbox')
+        appearance: none
+        width: 20px
+        height: 20px
+        border: unset
+        border-radius: 3px
+        cursor: pointer
+        margin-top: 0
+        outline: none
+        background-color: #ebebeb
+
+        &:checked::before
+          content: ''
+          position: absolute
+          left: 24%
+          top: 20%
+          width: 12px
+          height: 12px
+          border-radius: 3px
+          background-color: $blue-text
+
+        +modifier('link')
+          color: $blue-text
+
+    +modifier('btn')
+      display: block
+      width: 150px
+      height: 50px
+      padding: 5px
+      border: unset
+      border-radius: 30px
+      margin: 20px 0
+      line-height: 2.4
+      font-weight: 400
+      text-align: center
+      color: #FFFFFF
+      background-image: linear-gradient(to bottom, #7898CF 0%, #7286bf 50%, #6C78B4 100%)
+
+      &:hover
+        color: #FFFFFF

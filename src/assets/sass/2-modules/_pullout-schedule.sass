@@ -1,5 +1,108 @@
 .pullout
-  margin: 20vh auto
+  margin: 50px auto
+
+  +element('title')
+    margin-bottom: 50px
+    color: $blue-text
+
+  +element('slider')
+    width: 100%
+    height: auto
+    padding-bottom: 10px
+    box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.2)
+
+    +modifier('buttons')
+      display: flex
+      width: 100%
+      height: 45px
+      justify-content: space-between
+
+      +modifier('btn')
+        display: flex
+        justify-content: center
+        align-items: center
+        width: calc(100% / 7)
+        height: auto
+        border: none
+        color: $blue-text
+        background-color: white
+
+        &:hover
+          background-color: #e9ebf4
+
+        &:focus
+          outline: none
+
+        & > span
+          font-weight: 700
+          text-transform: uppercase
+
+        &.active
+          color: $red-text
+          background-color: #e9ebf4
+
+    +modifier('responsive')
+      position: relative
+      width: 100%
+      height: auto
+      background: url('./assets/images/pullout-img/time-bg.png') no-repeat top/contain
+
+      & > span
+        position: absolute
+        top: 3%
+        z-index: 1
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        cursor: pointer
+        box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.2)
+        background-color: white
+
+        &:hover
+          opacity: .9
+
+      +modifier('btn-prev')
+        left: -2%
+        background: url('./assets/images/icons/left-chevron.svg') no-repeat center/60%
+
+      +modifier('btn-next')
+        left: 98%
+        background: url('./assets/images/icons/right-chevron.svg') no-repeat center/60%
+
+
+      & > div.slick-list
+        height: 100%
+
+      +modifier('content')
+        display: flex !important
+        flex-direction: column
+        justify-content: center
+        height: auto
+
+        +modifier('time')
+          display: flex
+          justify-content: center
+          align-items: center
+          height: 47px
+          margin-bottom: 10px
+          color: $white-text
+
+        +modifier('img')
+          display: flex
+          justify-content: center
+          align-items: center
+          border-left: 1px solid #ddd
+          object-fit: contain
+
+
+
+
+
+
+
 
   +element('table')
     border-top: 2px solid $primary-red-color

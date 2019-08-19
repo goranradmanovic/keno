@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Results from './views/Results.vue'
+import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'results',
-      component: Results
+      name: 'home',
+      component: Home
     },
     {
       path: '/kako-igrati',
@@ -34,22 +34,9 @@ export default new Router({
       component: () => import('./views/News.vue')
     },
     {
-      path: '/kontakt',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    },
-    {
       path: '/svirezultati',
       name: 'allresults',
       component: () => import('./views/AllResults.vue'),
-    },
-    {
-      path: '/prodajnamjesta',
-      name: 'saleplaces',
-      component: () => import('./views/SalePlaces.vue'),
     },
     {
       path: '/registracija',
@@ -57,48 +44,21 @@ export default new Router({
       component: () => import('./views/Register.vue')
     },
     {
-      path: '/prijava',
-      name: 'login',
-      component: () => import('./views/Login.vue')
-    },
-    {
       path: '/profil',
       name: 'userprofil',
       component: () => import('./views/UserProfil.vue')
     },
-    {
-      path: '/blogpostovi',
-      name: 'blogposts',
-      component: () => import('./views/BlogPosts.vue'),
-    },
-    {
-      path: '/uplatalotosuperpet',
-      name: 'paymentlotosuper',
-      component: () => import('./views/PaymentLotoSuper.vue'),
-    },
-    {
-      path: '/uplatakenoloto',
-      name: 'paymentkenoloto',
-      component: () => import('./views/PaymentKenoLoto.vue'),
-    },
-    {
-      path: '/komandnatabla',
-      name: 'dashboard',
-      props: true,
-      beforeEnter: (to, from, next) => {
 
-        if (to.params.email && to.params.password) {
-          next();
-        } else {
-          next({ name: 'results' });
-        }
-      },
-      component: () => import('./views/Dashboard.vue'),
-    },
     {
-      path: '/depozit',
-      name: 'deposit',
-      component: () => import('./views/Deposit.vue'),
+      path: '/novosticlanak',
+      name: 'singlenews',
+      component: () => import('./views/SingleNews.vue')
+    },
+
+    {
+      path: '/univerzalna',
+      name: 'universal',
+      component: () => import('./views/Universal.vue')
     },
   ]
 })

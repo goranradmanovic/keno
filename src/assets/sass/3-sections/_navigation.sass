@@ -1,66 +1,346 @@
 .navigation
 
-	+element('homelink')
-		margin: 0
-		margin-right: 310px
+	+element('logo')
+		width: 100px
+		height: 40px
+		object-fit: contain
 
-		+modifier('logo')
-			height: 50px
-			object-fit: contain
+	+element('item')
+		display: flex
+		align-items: center
+		height: 70px
+		padding: 0px 5px
+		line-height: 50px
 
-	+element('userhelp')
-		width: 230px
-		margin: 0 10px 0 0
-		font-size: .9em
-		text-align: center
+		&:hover
+			background-color: #eee
 
-	+element('search')
-		width: 22%
-		margin: 0 10px 0 0
+		+modifier('link')
+			height: 100%
 
-		+modifier('addon')
-			background-color: unset
+			&.router-link-exact-active
+				color: $grey-text
+				background-color: #eee
 
-		+modifier('input')
-			border-top-right-radius: .25rem !important
-			border-bottom-right-radius: .25rem !important
+			&.registration
+				height: 45px
+				border-radius: 40px
+				line-height: 30px
+				box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, .1)
+				color: rgb(43, 56, 143) !important
+				background: $white-text
 
-	+element('navbar')
-		max-width: 17%
+	+element('dropdown')
+		height: 70px
+		padding: 0px 5px
+		line-height: 50px
 
-	+element('mobilebtn')
-		border: none
+		&:hover
+			background-color: #eee
 
-		&:focus
-			outline: none
+		&.user
+			display: flex
+			align-items: center
 
 		+modifier('icon')
-			width: 35px
-			height: 35px
-			background-image: url('./assets/images/header-img/bars.png')
-			background-repeat: no-repeat
-			background-position: center
+			width: 25px
+			height: 25px
+			margin-right: 5px
+			color: $white-text !important
 
-	+element('link')
-		font-weight: 500
+		+modifier('useramount')
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			width: auto
+			height: 100%
+			margin-left: 5px
+			padding: 0 5px
+			border-radius: 30px
+			background-image: $blue-gradient
 
-//Subnavigation
-.subnavigation
-	margin-bottom: 50px
-	
-	+element('list')
+		+modifier('link')
 
-		+modifier('item')
+			&::after
+				display: none
+
+			&.signin
+				height: 45px
+				border-radius: 40px
+				line-height: 30px
+				box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, .1)
+				background-image: $blue-gradient
+				color: $white-text !important
+
+		+modifier('modal')
+			top: 97%
+			left: unset
+			right: 0%
+			border: unset
+			border-top-left-radius: unset
+			border-top-right-radius: unset
+			border-bottom-right-radius: 10px
+			border-bottom-left-radius: 10px
+
+			&.howtoplay-dropdown
+				left: 0
+				right: unset
+				border-bottom-right-radius: unset
+				border-bottom-left-radius: unset
+				padding: unset
+
+			&.loggedin
+				padding: 10px
+
+			+modifier('form')
+				width: 265px
+				padding: 20px
+
+				+modifier('group')
+					margin-bottom: 5px
+
+					&:last-child
+						margin-bottom: 0
+
+					+modifier('text')
+						font-size: .825em
+						text-transform: none
+						color: $red-text
+
+					+modifier('input')
+						border: unset
+						border-radius: 30px
+						background-color: #ebebeb
+
+					+modifier('btn')
+						border-radius: 40px
+						box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, .1)
+						background-image: $blue-gradient
 
 			+modifier('link')
-				color: $grey-text
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 211px
+				height: 30px
+
+				&.user-dropdown
+
+					&:first-child
+
+						&::before
+							content: ''
+							display: inline-block
+							width: 25px
+							height: 25px
+							margin: 2% 3% 0 0
+							background-image: url('./assets/images/icons/user-black.svg')
+							background-position: center
+							background-repeat: no-repeat
+							background-size: contain
+
+					&:nth-child(3)
+
+						&::before
+							content: ''
+							display: inline-block
+							width: 25px
+							height: 25px
+							margin: 2% 3% 0 0
+							background-image: url('./assets/images/icons/request-money.svg')
+							background-position: center
+							background-repeat: no-repeat
+							background-size: contain
+
+					&:last-child
+						color: $primary-red-color
+
+						&::before
+							content: ''
+							display: inline-block
+							width: 25px
+							height: 25px
+							margin: 2% 3% 0 0
+							background-image: url('./assets/images/icons/logout_rounded.svg')
+							background-position: center
+							background-repeat: no-repeat
+							background-size: contain
+
+				&.keno, &.super
+					width: 270px
+					height: 70px
+					padding: 10px 0
+					font-size: .875em
+					text-transform: uppercase
+					color: $white-text
+
+					&:hover
+						opacity: .7
+
+					&:last-child
+
+						&::before
+							display: none
+
+				&.keno
+					background-image: $red-gradient
+
+				&.super
+					background-image: $green-gradient
+
+				+modifier('img')
+					display: inline-flex
+					width: 35%
+					object-fit: contain
+
+				+modifier('text')
+					display: inline-flex
+					align-items: center
+					height: 100%
+					margin-left: 5%
+					line-height: 1
+					text-align: left
+
+	+element('info')
+		height: 50px
+		background-image: linear-gradient(to right, #34388E 0%, #613375 25%, #842E62 50%, #C54961 75%, #cc263b 100%)
+
+		+modifier('check')
+			position: relative
+			width: 200px
+			height: 100%
+			margin-left: 35px
+			background-image: $lightred-gradient
+
+			&::before
+				content: ''
+				position: absolute
+				left: -5%
+				display: inline-block
+				width: 10px
+				height: 50px
+				background-color: rgba(219, 54, 73, .8)
+
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 100%
+				display: inline-block
+				width: 10px
+				height: 50px
+				background-color: rgba(219, 54, 73, .8)
+
+			&.show
+
+				&::before
+					background-image: $lightred-gradient
+
+				&::after
+					background-image: $lightred-gradient
+
+			&.show > span
+
+				&::before
+					background-image: $lightred-gradient
+
+				&::after
+					background-image: $lightred-gradient
+
+			+modifier('pseudo')
+
+				&::before
+					content: ''
+					position: absolute
+					right: 105%
+					display: inline-block
+					width: 10px
+					height: 50px
+					background-color: rgba(219, 54, 73, .4)
+
+				&::after
+					content: ''
+					position: absolute
+					top: 0
+					left: 105%
+					display: inline-block
+					width: 10px
+					height: 50px
+					background-color: rgba(219, 54, 73, .4)
+
+			+modifier('link')
+				display: flex
+				justify-content: center
+				align-items: center
+				height: 50px
+				font-weight: 600
+				text-transform: uppercase
+				color: $white-text
 
 				&:hover
-					color: lighten($grey-text, 30%)
+					color: $white-text
 
-//router-link active nav item
-a.nav-link.navigation__link.router-link-exact-active,
-a.nav-link:focus.navigation__link.router-link-exact-active,
-a.nav-link.subnavigation__list--item--link.router-link-exact-active,
-a.nav-link:focus.subnavigation__list--item--link.router-link-exact-active
-	color: $primary-red-color
+				&::before
+					content: ''
+					display: inline-block
+					width: 25px
+					height: 25px
+					margin-right: 10px
+					background: url('./assets/images/icons/money_bag.svg') no-repeat center/contain
+
+				&::after
+					display: none
+
+		+modifier('modal')
+			top: -2px !important
+			left: -10% !important
+			border: none
+			border-top-left-radius: unset
+			border-top-right-radius: unset
+
+			+modifier('form')
+				width: 240px
+				padding: 0 10px
+
+				+modifier('group')
+
+					+modifier('text')
+						font-size: .825em
+						text-transform: none
+						color: $red-text
+
+		+modifier('container')
+			display: flex
+			justify-content: flex-end
+			align-items: center
+			height: 100%
+			padding-right: 20px
+			font-weight: 400
+			color: $white-text
+			text-transform: uppercase
+
+			+modifier('text')
+				display: flex
+				margin-right: 25px
+				font-size: .9em
+
+				&::before
+					content: ''
+					display: inline-block
+					width: 25px
+					height: 25px
+					margin-right: 5px
+					background: url('./assets/images/icons/online_support.svg') no-repeat center/contain
+
+				& > span
+					font-weight: 600
+					text-transform: none
+
+			+modifier('number')
+				width: 150px
+				padding: 5px
+				border-radius: 30px
+				text-align: center
+				font-size: 1.25em
+				font-weight: 600
+				background-color: #b62948

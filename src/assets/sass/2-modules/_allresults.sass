@@ -1,2 +1,102 @@
 .allresults
-  margin: 10% auto
+
+  +element('title')
+    color: $blue-text
+
+  +element('selects')
+    display: flex
+    justify-content: space-between
+
+    +modifier('items')
+      display: flex
+      flex-direction: column
+      width: 32%
+
+      +modifier('label')
+
+      +modifier('box')
+        appearance: none
+        border: unset
+        border-radius: 30px
+        color: $white-text
+        background: url('./assets/images/icons/angle-down.svg') no-repeat no-repeat 95%/25px, $blue-gradient
+
+        & > option
+          padding: 5px
+          background-color: $blue-text
+
+  +element('paggination')
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    width: 100%
+    height: 100%
+
+    +modifier('button')
+      width: 25px
+      height: 25px
+      margin-left: 5px
+      border: unset
+      border-radius: 50%
+      cursor: pointer
+      color: $grey-text
+      background-color: #ebebeb
+
+      &:focus
+        outline: none
+
+      &.arrow
+
+        &:nth-child(1)
+          background: url('./assets/images/icons/left-double-chevron.svg') no-repeat center/60%, $blue-gradient
+
+        &:nth-child(2)
+          background: url('./assets/images/icons/left-single-chevron.svg') no-repeat center/60%, $blue-gradient
+
+        &:nth-last-child(2)
+          background: url('./assets/images/icons/right-single-chevron.svg') no-repeat center/60%, $blue-gradient
+
+        &:nth-last-child(1)
+          background: url('./assets/images/icons/right-double-chevron.svg') no-repeat center/60%, $blue-gradient
+
+      &.arrow.disabled
+        cursor: not-allowed
+
+  +element('card')
+    margin-bottom: 20px
+    border: unset
+    box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, .2)
+
+    +modifier('header')
+      padding-top: 7px
+      padding-bottom: 7px
+      border: unset
+      background-color: white
+
+    +modifier('button')
+      width: 100%
+      text-align: left
+      text-transform: uppercase
+      text-decoration: none
+      color: $grey-text
+      transition: color 400ms ease-in-out
+
+      &:hover, &:focus
+        text-decoration: none
+
+      &::after
+        content: ''
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        width: 25px
+        height: 25px
+        border-radius: 50%
+        float: right
+        color: white
+        background: url('./assets/images/icons/arrow-down.svg') no-repeat center/60% #9db1d9
+        transition: background 400ms ease-in-out
+
+      &[aria-expanded='true']:after
+        content: ''
+        background: url('./assets/images/icons/arrow-up.svg') no-repeat center/60% #334da1
