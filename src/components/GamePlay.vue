@@ -44,7 +44,6 @@
 
               .col-md-6.col-sm-12
                 .results__gamepaying--keno--makings--box
-
                   ul.results__gamepaying--keno--makings--box--list
                     li.results__gamepaying--keno--makings--box--list--item
                       span 7/10
@@ -73,7 +72,7 @@
         .results__gameplaying--keno(v-if='isKeno')
           p.results__gameplaying--keno--title Izaberi brojeve
           .results__gameplaying--keno--numbers
-              button.results__gameplaying--keno--numbers--box(v-for='number in 60' :key='number' :value='number' :title='numberKenoTooltip' :class='{disabled: kenoSelectedNumbersLenght}' @click='selectedNumber($event)' ref='gameplayingNumbers') {{ number }}
+              button.results__gameplaying--keno--numbers--box(v-for='number in 60' :key='number' :value='number' :title='numberKenoTooltip' :class='{disabled: kenoSelectedNumbersLenght}' :disabled='kenoSelectedNumbersLenght' @click='selectedNumber($event)' ref='gameplayingNumbers') {{ number }}
 
           .results__gameplaying--keno--selectednumbers
             .results__gameplaying--keno--selectednumbers--container
@@ -88,7 +87,7 @@
         .results__gameplaying--super5(v-else)
           p.results__gameplaying--super5--title Izaberi brojeve
           .results__gameplaying--super5--numbers
-              button.results__gameplaying--super5--numbers--box(v-for='number in 30' :key='number' :value='number' :title='numberSuper5Tooltip' :class='{disabled: superSelectedNumbersLenght}' @click='selectedNumber($event)' ref='gameplayingNumbers') {{ number }}
+              button.results__gameplaying--super5--numbers--box(v-for='number in 30' :key='number' :value='number' :title='numberSuper5Tooltip' :class='{disabled: superSelectedNumbersLenght}' :disabled='superSelectedNumbersLenght' @click='selectedNumber($event)' ref='gameplayingNumbers') {{ number }}
 
           .results__gameplaying--super5--selectednumbers
             .results__gameplaying--super5--selectednumbers--container
@@ -111,9 +110,10 @@
     components: {
       GameStart
     },
+    props: ['isKeno'],
     data() {
       return {
-        isKeno: true,
+        //isKeno: false,
         selectedNumbers: [],
         numberKenoTooltip: 'Maksimalni odabir je 10 brojeva',
         numberSuper5Tooltip: 'Maksimalni odabir je 5 brojeva',
@@ -162,11 +162,27 @@
 
     methods: {
       selectedNumber(event) {
-        event.target.disabled = true;
-        event.target.classList.add('disabled');
-
         let numberValue = event.target.value;
-        this.selectedNumbers.push(numberValue);
+
+        //If number is slected,then remove selected class and remove number from array
+        if (event.target.classList.contains('selected')) {
+          event.target.classList.remove('selected');
+          event.target.removeAttribute('data-selected');
+
+          this.selectedNumbers.forEach((item, index) => {
+
+            if (item == numberValue) {
+              this.selectedNumbers.splice(index, 1)
+            }
+          })
+        } else {
+          if (this.selectedNumbers.length < 10) {
+            //If number is not selected, add selected class and push that number to array
+            event.target.classList.add('selected');
+            event.target.setAttribute('data-selected', 'true');
+            this.selectedNumbers.push(numberValue);
+          }
+        }
       },
 
       randomSelectedNumberHighlight() {
@@ -176,6 +192,7 @@
             if (this.$refs.gameplayingNumbers[i].value == this.selectedNumbers[j]) {
               this.$refs.gameplayingNumbers[i].disabled = true;
               this.$refs.gameplayingNumbers[i].classList.add('disabled');
+              this.$refs.gameplayingNumbers[i].setAttribute('data-selected', 'true');
             }
           }
         }
@@ -212,6 +229,7 @@
 
         this.$refs.gameplayingNumbers.forEach(item => {
           item.disabled = false;
+          item.removeAttribute('data-selected');
         })
       },
 
@@ -231,7 +249,11 @@
         for (let i = 1; i < this.payments.length; i++) {
           this.payments[i].disabled = false;
         }
-      }
+      },
+    },
+
+    created() {
+
     },
 
     computed: {

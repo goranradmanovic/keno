@@ -41,6 +41,25 @@
       font-weight: 300
       color: $white-text
 
+  +element('social')
+    margin-bottom: 30px
+
+    +modifier('link')
+      display: block
+      font-size: 1.1em
+      text-align: left
+      color: $white-text
+
+      &:hover
+        color: $white-text
+        
+      +modifier('img')
+        display: inline-flex
+        width: 35px
+        height: 35px
+        margin-right: 5px
+        object-fit: contain
+
   +element('right')
     display: flex
     flex-direction: column
@@ -67,7 +86,7 @@
     +modifier('img')
       width: 80%
       object-fit: contain
-      transform: translateY(65%)
+      transform: translateY(62%)
 
   +element('copy')
     width: 100%
@@ -86,3 +105,9 @@
       border-radius: 50%
       font-size: 1.5em
       font-weight: 600
+
+    +modifier('desktop')
+      display: block
+
+    +modifier('mobile')
+      display: none

@@ -38,7 +38,7 @@
                 button.btn.btn-link.allresults__card--button(type='button' data-toggle='collapse' :data-target='"#collapse-" + index') {{ item.round }}. Kolo  &nbsp;&nbsp;&nbsp; {{ item.drawing }}. Izvlačenje
 
             .collapse(:aria-labelledby='"heading-" + index' :id='"collapse-" + index' data-parent='#accordionExample')
-              .card-body.p-1
+              .card-body.p-1.allresults__desktop
                 .container
                   .row
                     .col-md-6.col-sm-12
@@ -89,9 +89,68 @@
 
                               .results__numbers--container.border-bottom-0
                                 .results__numbers--container--item.green-circle(v-for='number in item.numbers') {{ number }}
+
+              //-Mobile section
+              .card-body.p-1.allresults__mobile
+                .container
+                  .row
+                    .col-sm-12
+                      div(v-if='isKeno')
+                        .card.border-0.results__info--bg(v-for='(item, index) in keno')
+
+                          .card-body.pl-1.pr-1
+                            .results__info.keno
+                              .results__info--img.keno
+                                span
+
+                              .results__info--img.super5.mobile
+                                span
+
+                              .results__info--content
+                                h5.results__info--content--subtitle.keno 3. Kolo &nbsp;&nbsp; 8. izvlačenje
+                                time.results__info--content--date Datum: 05.08.2019.
+
+                                .results__info--content--total.keno Ukupna uplata:&nbsp;
+                                  strong {{ item.total }} KM
+                                .results__info--content--combinations.keno Broj kombinacija:&nbsp;
+                                  strong {{ item.number_combinations }}
+
+                            .results__numbers
+                              h3.results__numbers--title.keno Izvučeni brojevi
+
+                              .results__numbers--container
+                                .results__numbers--container--item.red-circle(v-for='number in item.numbers') {{ number }}
+
+                      div(v-else)
+                        .card.border-0(v-for='(item, index) in lotosuper')
+
+                            .card-body.pl-0.pr-0
+                              .results__info.super5
+                                .results__info--img.super5
+                                  span
+
+                                .results__info--img.keno.mobile
+                                  span
+
+                                .results__info--content
+                                  h5.results__info--content--subtitle.super5 3. Kolo &nbsp;&nbsp; 8. izvlačenje
+                                  time.results__info--content--date Datum: 05.08.2019.
+
+                                  .results__info--content--total.super5 Ukupna uplata:&nbsp;
+                                    strong {{ item.total }} KM
+                                  .results__info--content--combinations.super5 Broj kombinacija:&nbsp;
+                                    strong {{ item.number_combinations }}
+
+                              .results__numbers
+                                h3.results__numbers--title.super5 Izvučeni brojevi
+
+                                .results__numbers--container.border-bottom-0
+                                  .results__numbers--container--item.green-circle(v-for='number in item.numbers') {{ number }}
 </template>
 
 <script>
+  import { bus } from '../main';
+
   export default {
     name: 'allresults',
     data() {
@@ -100,6 +159,7 @@
         currentPage: 1,
         itemsPerPage: 5,
         resultCount: 0,
+        isKeno: null,
 
         //Placeholder data
         //Select box
@@ -248,6 +308,16 @@
       }
     },
 
+    methods: {
+      kenoStoreStatus() {
+        this.isKeno = this.$store.state.isKeno;
+      }
+    },
+
+    created() {
+      this.kenoStoreStatus();
+    },
+
     computed: {
 
       //Calculate total page fro pagination
@@ -273,10 +343,6 @@
         //Slice the items array
         return this.roundsdrawings.slice(index, index + this.itemsPerPage);
       },
-    },
-
-    methods: {
-
     },
 
     mounted() {

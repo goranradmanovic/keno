@@ -15,6 +15,16 @@
           span 9. Izvlačenje
         time.results__start--red--info--time 25:18
 
+      .results__start--red--info.mobile
+        .results__start--red--info--title
+          p Naredna&nbsp;
+            br
+            span.results__start--red--info--title--strong Keno&nbsp;
+            | igra
+          time.results__start--red--info--time 25:18
+        p.results__start--red--info--text 3. Kolo 9. Izvlačenje
+
+
     //-Add .active class to the .results__start--green
     .results__start--green(:class='{ active: !isKeno }')
       span.results__start--green--pseudo
@@ -29,6 +39,15 @@
           br
           span 9. Izvlačenje
         time.results__start--green--info--time 25:18
+
+      .results__start--red--info.mobile
+        .results__start--red--info--title
+          p Naredna&nbsp;
+            br
+            span.results__start--red--info--title--strong Keno&nbsp;
+            | igra
+          time.results__start--red--info--time 25:18
+        p.results__start--red--info--text 3. Kolo 9. Izvlačenje
 
     .results__start--subtext * Uplate za naredno izvlačenje se onemogućuju 5 minuta prije izvlačenja automatski se prebacuju za sledeće izvlačenje
 </template>

@@ -112,6 +112,9 @@
         width: 55%
         color: $white-text
 
+        &.mobile
+          display: none
+
         +modifier('title')
           font-size: .9em
           font-weight: 400
@@ -399,17 +402,23 @@
           &:focus
             outline: none
 
+          &.selected, &[data-selected]
+            color: $white-text
+            background-color: $red-text
+
           &.disabled
             pointer-events: none
 
           &:disabled
-            pointer-events: none
-            color: $white-text
-            background-color: $red-text
+            //pointer-events: none
 
           &:hover
             color: $white-text
             background-color: $red-text
+
+          &.disabled:hover, &:disabled:hover
+            color: unset
+            background-color: unset
 
       +modifier('selectednumbers')
         margin-top: 50px
@@ -505,17 +514,23 @@
           &:focus
             outline: none
 
+          &.selected, &[data-selected]
+            color: $white-text
+            background-color: $green-text
+
           &.disabled
             pointer-events: none
 
           &:disabled
-            pointer-events: none
-            color: $white-text
-            background-color: $green-text
+            //pointer-events: none
 
           &:hover
             color: $white-text
             background-color: $green-text
+
+          &.disabled:hover, &:disabled:hover
+            color: unset
+            background-color: unset
 
       +modifier('selectednumbers')
         margin-top: 50px
@@ -606,6 +621,12 @@
         outline: none
 
   //Results information by round
+  +element('desktop')
+    display: flex
+
+  +element('mobile')
+    display: none
+
   +element('info')
     display: flex
     flex-wrap: wrap

@@ -127,7 +127,7 @@
                     span(v-if='!$v.user.securtiyanswer.required') Sigurnosni odgovor je obavezna
 
             .row
-              .col-md-5.col-sm-12
+              .col-md-5.col-sm-12.register__card--mobile-center
                 .form-check.form-check-inline
                   input#currency-1.form-check-input.register__card--input--radio(type='radio' v-model='user.currency' name='currency' :class="{ 'is-invalid': submitted && $v.user.currency.$error }" value='BAM' checked)
                   label.form-check-label.register__card--label--radio(for='currency-1') BAM

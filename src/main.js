@@ -14,6 +14,9 @@ Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(BootstrapVue);
 
+//Event Bus
+export const bus = new Vue();
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyB47LvybcbHyvvHxkLdK5AOCjtaaEgscVw',

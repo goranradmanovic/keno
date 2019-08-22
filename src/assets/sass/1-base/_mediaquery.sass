@@ -1,100 +1,485 @@
-@media only screen and (max-width: 425px), (max-width: 375px), (max-width: 320px)
+@media only screen and (max-width: 425px) and (min-width: 320px)
 
-  .header
-    border-bottom: 1px solid #eee
+  //Navigation section
+  .navbar.navbar-expand-lg
+    padding: 0
 
-  a.navigation__homelink
+    .navbar-brand
+      margin-right: 5px
+
+      .navigation__logo
+        width: 60px
+
+    .navigation__mobilesupport
+      display: flex
+
+    .navbar-toggler
+      border: unset
+
+      &:focus
+        outline: none
+
+    .navbar-toggler-icon
+      background-image: unset
+      background-image: url('assets/images/icons/bars.svg')
+
+    .navigation__item--link, .navigation__dropdown--link
+      width: 100%
+      text-align: center
+
+  .navigation__info--check
     margin: 0 auto
 
-  p.navigation__userhelp, .navigation__search
+  .navigation__info--container
     display: none
 
-  video.results__screen--video
-    width: 93%
-
-  div.results__screen--info.first
-    transform: translate(0px, -150px)
-
-  div.results__screen--info.second
-    transform: translate(-118px, -80px)
-
-  .results__screen--info--strong
-    font-size: .68em
-
-  .results__screen--logotime
-    margin: 2% -20% 0 0
-
-    +modifier('logo')
-      background-size: contain
-
-  .results__screen--display
-    width: 120px
-    height: 80px
-    margin: 0 1% 8% 0
-
-  .results__start
-
-    &.red
-      margin: 0 0 10px 0
-
-  .results__dropdown--numbers--container--item.yellow-circle
-    width: 70px
-    height: 70px
-
-  .results__gameplaying--selectednumbers, .results__gameplaying--randomnumbers
-    height: auto
-
-  .results__screen--allresults
+  .navigation__dropdown--modal--link.keno, .navigation__dropdown--modal--link.super
     width: 100%
-    margin: 20px auto
 
-  //Payment section
-  .payment
-    flex-direction: column
+  .navbar-nav .dropdown-menu.navigation__dropdown--modal
+    position: absolute
+    width: 100%
+
+  //Results section
+  .results
+    padding: unset
+    background-image: unset
+
+    & > .container
+      & > .row
+        & > .col-md-12.col-sm-12
+          padding: unset
+
+    +element('desktop')
+      display: none
+
+    +element('mobile')
+      display: block
+
+    +element('screen')
+      height: auto
+
+      +modifier('video')
+        background: url('assets/images/results-img/live-stream-mobile.png') no-repeat center/cover
+
+    +element('start')
+      margin-bottom: 10px
+      transform: unset
+      overflow: hidden
+      background: $registerbg-gradient
+
+      +modifier('red')
+
+        +modifier('pseudo')
+          display: none
+
+        +modifier('info')
+          display: none
+
+        &.active
+          width: 70%
+
+          & > .results__start--red--info.mobile
+            display: flex
+            flex-direction: column
+            justify-content: center
+
+            & > .results__start--red--info--title
+              display: flex
+              margin: 5px 5px 10px 0
+
+              & > :first-child
+                width: 50%
+                margin: 0
+                font-size: .8em
+
+              & > :last-child
+                width: 50%
+                border-top: 1px solid white
+                border-bottom: 1px solid white
+                font-size: 1.2em
+                line-height: 2
+
+            & > .results__start--red--info--text
+              width: 100%
+              margin: 0
+              font-size: .8em
+
+        +modifier('img')
+            width: 90%
+
+            &.active
+              width: 40%
+
+              &:after
+                position: static
+                width: 100%
+
+      +modifier('green')
+
+        +modifier('pseudo')
+          display: none
+
+        +modifier('info')
+          display: none
+
+        &.active
+          width: 70%
+
+          & > .results__start--red--info.mobile
+            display: flex
+            flex-direction: column
+            justify-content: center
+
+            & > .results__start--red--info--title
+              display: flex
+              margin: 5px 5px 10px 0
+
+              & > :first-child
+                width: 50%
+                margin: 0
+                font-size: .8em
+
+              & > :last-child
+                width: 50%
+                border-top: 1px solid white
+                border-bottom: 1px solid white
+                font-size: 1.2em
+                line-height: 2
+
+            & > .results__start--red--info--text
+              width: 100%
+              margin: 0
+              font-size: .8em
+
+        +modifier('img')
+            width: 90%
+
+            &.active
+              width: 40%
+
+              &:after
+                position: static
+                width: 100%
+
+      +modifier('subtext')
+        display: none
+
+
+    .results__gamepaying--keno--makings--box--list
+      margin-bottom: 0
+
+    +element('gameplaying')
+
+      & > .container
+        & > .row
+          & > .col-md-12.col-sm-12
+            padding: unset
+
+      +modifier('super5')
+        +modifier('title')
+          margin-top: 10px
+
+        +modifier('selectednumbers')
+
+          +modifier('container')
+            flex-wrap: wrap
+            justify-content: space-between
+
+            +modifier('title')
+              order: 1
+              margin-top: 10px
+
+            +modifier('qp')
+              width: 45%
+              height: 42px
+              margin: 0
+
+            +modifier('trash')
+              width: 45%
+              height: 42px
+
+            +modifier('box')
+              margin: 3px
+
+              &:nth-child(1)
+                margin-left: 3px
+
+      +modifier('keno')
+
+        +modifier('title')
+          margin-top: 10px
+
+        +modifier('selectednumbers')
+
+          +modifier('container')
+            flex-wrap: wrap
+            justify-content: space-between
+
+            +modifier('title')
+              order: 1
+              margin-top: 10px
+
+            +modifier('qp')
+              width: 45%
+              height: 42px
+              margin: 0
+
+            +modifier('trash')
+              width: 45%
+              height: 42px
+
+            +modifier('box')
+              margin: 3px
+
+              &:nth-child(1)
+                margin-left: 3px
+
+      +modifier('btn')
+        width: 60%
 
     +element('info')
-      width: 100%
-      margin-bottom: 10px
 
-    +element('images')
-      width: 100%
+      +modifier('img')
+        width: 120px
+        height: 120px
+        margin-left: 10px
+        margin-bottom: 30px
 
-      +modifier('item')
-        width: calc(100% / 2)
-        padding: 0 0 5px 0
+        &::before
+          top: -19.2% !important
+          left: -20.2% !important
+          width: 140px !important
+          height: 140px !important
+
+        & > span
+          width: 150px !important
+          height: 150px !important
+
+        &::after
+          top: -29.5% !important
+          left: -30.5% !important
+          width: 160px !important
+          height: 160px !important
+
+        &.super5.mobile, &.keno.mobile
+          width: 90px
+          height: 90px
+          margin: 0 10px 50px 0
+          opacity: .4
+
+          &::before
+            top: -28.2% !important
+            left: -28.2% !important
+            width: 110px !important
+            height: 110px !important
+
+          & > span
+            width: 120px !important
+            height: 120px !important
+
+          &::after
+            top: -42.5% !important
+            left: -43.5% !important
+            width: 130px !important
+            height: 130px !important
+
+      +modifier('content')
+        width: 100%
+
+    +element('numbers')
+      +modifier('container')
+        height: auto
+
+
+  //How to play section
+  .howtoplay
+    height: auto
+    background-size: cover
+
+    +element('content')
+      height: auto
+
+      +modifier('img')
+        height: 200px
+
+
+  //Pullout schelud section
+  .pullout
+
+    +element('slider')
+
+      +modifier('buttons')
+        flex-wrap: wrap
+        justify-content: center
+        height: auto
+
+        +modifier('btn')
+          width: calc(100% / 3)
+          height: 40px
+
+      +modifier('responsive')
+        background-size: 320%
+
+        +modifier('btn-next')
+          left: 88%
+
+        +modifier('content')
+
+          +modifier('time')
+            margin-bottom: 25px
+
+
+  //Footer section
+  .footer
+    height: auto
+    background-size: cover
+
+    +element('left')
+      +modifier('text')
+        font-size: .8em
+
+    +element('social')
+      +modifier('link')
+        display: inline-block
+        width: 50%
+        float: left
+
+    +element('right')
+      background-position: 25% 0
+      background-blend-mode: overlay
+
+      +modifier('links')
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 100%
+
+        +modifier('link')
+          margin-bottom: 10px
+
+      +modifier('img')
+        width: 100%
+        transform: unset
+
+    +element('copy')
+      height: auto
+      text-align: center
+
+      +modifier('legaly')
+        line-height: 1.6
+
+      +modifier('desktop')
+        display: none
+
+      +modifier('mobile')
+        display: block
+        padding: 10px 0
+
+        & > p
+          margin-bottom: 5px
+          line-height: 1
+
+  //All Results
+  .allresults
+
+    +element('desktop')
+      display: none
+
+    +element('mobile')
+      display: flex
+
+    +element('selects')
+      flex-wrap: wrap
+      margin-bottom: 30px
+
+      +modifier('items')
+        width: calc(96% / 2)
+        margin-left: 2%
+
+    +element('paggination')
+      justify-content: center
+
+  //Register page
+  .register
+
+    +element('card')
+
+      +modifier('divider')
+        width: calc(100% - 58%)
+
+      +modifier('mobile-center')
+        text-align: center
+
+      +modifier('btn')
+        margin: 20px auto
+
+  //User profile page
+  .userprofil
+
+    +element('wrapper')
+      flex-direction: column
+
+      &.desktop
+        display: none
+
+      &.mobile
+        display: flex
+
+      & > .card
+        border: unset
+        box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, .2)
+
+        & > .card-header
+          border: unset
+          background-color: unset
+
+      +modifier('content')
+        flex-wrap: wrap
+        align-items: flex-start
+        height: auto
+        box-shadow: unset
+
+        & > div
+          width: 55%
+
+        +modifier('accountstatus')
+          flex-direction: column
+
+          & > span:first-child, & > span:last-child
+            width: 100%
+
+          & > span:first-child
+            justify-content: flex-end
+            font-size: .7em
+            padding: 0
+
+          & > span:nth-child(2)
+            margin-bottom: 5px
+            font-size: 1.2em
+            text-align: right
+
+        +modifier('bonusstatus')
+
+          +modifier('info')
+            width: 100%
+
+            & > span:first-child
+              justify-content: center
+              font-size: .8em
+              padding: 0
+
+            & > span:last-child
+              font-size: 1em
+              font-weight: 600
+
+        +modifier('playbtn')
+          transform: translate(10%, 95%)
+
+    +element('divider')
+      width: calc(100% - 65%)
 
     +element('btn')
-      width: 100%
-
-//Tablet media query
-@media only screen and (max-width: 768px)
-
-  a.navigation__homelink
-    margin: 0 auto
-
-  p.navigation__userhelp, .navigation__search
-    display: none
-
-  .navigation__navbar
-    max-width: unset
-
-  .results__screen--video
-    width: 95.7%
-    height: 70.75vh
-    object-fit: cover
-
-  .results__screen--info.first
-    transform: translate(-37px, -150px)
-
-  .results__screen--info.second
-    transform: translate(-244px, -80px)
-
-  .results__start
-    font-size: 1.1em
-
-  .payment__info--text
-    font-size: .8em
-
-  .payment__btn
-    transform: unset
-    margin: 10px auto
+      height: 40px
+      margin-bottom: 20px

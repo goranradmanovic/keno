@@ -3,7 +3,7 @@
     .container
       .row.mt-4.mb-4
         .col-md-12.col-sm-12
-          .userprofil__wrapper
+          .userprofil__wrapper.desktop
             img.userprofil__wrapper--image(src='../assets/images/icons/user-filled.svg' alt='User profil image')
 
             .userprofil__wrapper--content
@@ -21,6 +21,25 @@
 
               .userprofil__wrapper--content--playbtn
                 button.btn Igraj
+
+          .userprofil__wrapper.mobile
+            p.lead.text-center markec358
+
+            .card
+              .card-body
+                .userprofil__wrapper--content
+                  img.userprofil__wrapper--image(src='../assets/images/icons/user-filled.svg' alt='User profil image')
+
+                  .userprofil__wrapper--content--accountstatus
+                      span Stanje osnovnog računa
+                      span 100,00KM
+
+                      .userprofil__wrapper--content--bonusstatus--info
+                        span Stanje BONUS računa
+                        span 100,00KM
+
+                .userprofil__wrapper--content--playbtn
+                  button.btn Igraj
       .row.mt-4.mb-4
         .col-md-12.col-sm-12
           p.userprofil__title Podatci o korisniku
@@ -77,7 +96,7 @@
 
       .row
         .col-md-12.col-sm-12
-          table.table.table-hover.userprofil__table
+          table.table.table-responsive-sm.table-hover.userprofil__table
             thead.userprofil__table--thead
               tr.userprofil__table--thead--tr
                 th.userprofil__table--thead--tr--th(v-for='(item, index) in gamesHistory.tableHeader' :key='index') {{ item }}
@@ -105,7 +124,7 @@
 
       .row
         .col-md-12.col-sm-12
-          table.table.table-hover.userprofil__table
+          table.table.table-responsive-sm.table-hover.userprofil__table
             thead.userprofil__table--thead
               tr.userprofil__table--thead--tr
                 th.userprofil__table--thead--tr--th(v-for='(item, index) in gamesHistoryTransaction.tableHeader' :key='index') {{ item }}

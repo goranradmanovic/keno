@@ -8,6 +8,13 @@
           a.navbar-brand(href='/')
             img(src='../assets/images/header-img/keno-logo.png' alt='Logo png' class='navigation__logo')
 
+          .navigation__mobilesupport
+            img(src='../assets/images/icons/online_support_red.svg' alt='Logo png' class='navigation__mobilesupport--img')
+            .navigation__mobilesupport--text
+              p Pomoć igračima&nbsp;
+                strong 7-23h
+              p 051 442 855
+
           button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent.collapse.navbar-collapse

@@ -9,9 +9,9 @@
             VideoStream
 
       .results__gameplaying
-        GamePlay
+        GamePlay(v-bind:isKeno='isKeno')
 
-        GameResults
+        GameResults(v-bind:isKeno='isKeno')
 
     .howtoplay
       .container
@@ -85,6 +85,7 @@
 </template>
 
 <script>
+  import { bus } from '../main';
   import Modal from '@/components/Modal.vue';
   import VideoStream from '@/components/VideoStream.vue';
   import GamePlay from '@/components/GamePlay.vue';
@@ -104,7 +105,7 @@
     },
     data() {
       return {
-
+        isKeno: null
       }
     },
     methods: {
@@ -150,15 +151,24 @@
               ]
             });
         });
+      },
+
+      kenoStoreStatus() {
+        this.isKeno = this.$store.state.isKeno;
       }
     },
 
     created() {
-
+      this.kenoStoreStatus();
     },
+
 
     mounted() {
       this.slickSliderInit();
+    },
+
+    computed: {
+
     }
   }
 </script>
