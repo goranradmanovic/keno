@@ -22,6 +22,6 @@
   }
 </script>
 
-<style lang="sass">
+<!--<style lang="sass">
   //This style tags are required here in order for sass compiler and live reload to work
-</style>
+</style>-->
